@@ -1,0 +1,46 @@
+gemfile: Gemfile
+
+PreCommit:
+  BundleCheck:
+    enabled: true
+
+  FixMe:
+    enabled: true
+    keywords: ["FIXME"]
+    exclude:
+      - .overcommit.yml
+
+  LocalPathsInGemfile:
+    enabled: true
+
+  RailsSchemaUpToDate:
+    enabled: false
+
+  RuboCop:
+    enabled: true
+    on_warn: fail
+    exclude:
+      - "./lib/tasks/auto_cancel_contracts.rake"
+      - "./vendor/google-authenticator/**/*"
+    command: ['bundle', 'exec', 'rubocop']
+  TrailingWhitespace:
+    enabled: true
+    exclude:
+      - "./db/structure.sql"
+      - "./vendor/google-authenticator/**/*"
+      - "./lib/CSVs/*"
+
+  YamlSyntax:
+    enabled: true
+
+  HardTabs:
+    enabled: true
+    exclude:
+      - "./vendor/google-authenticator/**/*"
+
+PrePush:
+  RSpec:
+    enabled: true
+    command: ["rspec"]
+  Brakeman:
+    enabled: true

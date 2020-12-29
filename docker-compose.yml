@@ -1,0 +1,93 @@
+version: '3.7'
+
+volumes:
+  development-database-data-volume:
+  test-database-data-volume:
+  rails_cache:
+  bundle:
+  node_modules:
+  packs:
+
+networks:
+  quire_backend_network:
+    external: true
+
+services:
+  quire_backend: &quire_backend
+    container_name: quire_backend
+    hostname: quire_backend
+    image: quire_backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        APP_USER_ID: ${APP_USER_ID}
+    ports:
+      - 3005:3005
+    tty: true
+    stdin_open: true
+    depends_on:
+      - quire_backend_development_database
+      - quire_backend_test_database
+      - quire_backend_redis
+    volumes:
+      - .:/home/quire_backend/quire_backend:cached
+      - ~/.ssh:/home/quire_backend/.ssh
+      - rails_cache:/home/quire_backend/quire_backend/tmp/cache
+      - bundle:/bundle
+      - node_modules:/home/quire_backend/quire_backend/node_modules
+      - packs:/home/quire_backend/quire_backend/public/packs
+    tmpfs:
+      - /tmp
+    env_file: .env
+    entrypoint: ["/home/quire_backend/docker-entrypoint.sh"]
+    command: ["bundle", "exec", "rails","server","-b","0.0.0.0","-p","3000"]
+    networks:
+      - quire_backend_network
+
+  quire_backend_worker:
+    <<: *quire_backend
+    command: bundle exec rake environment resque:work QUEUE=*
+    container_name: quire_backend_worker
+    hostname: quire_backend_worker
+    ports: []
+    entrypoint: ""
+    depends_on:
+      - quire_backend_development_database
+      - quire_backend_test_database
+      - quire_backend_redis
+      - quire_backend
+    networks:
+      - quire_backend_network
+
+  quire_backend_development_database: &database
+    image: postgres:12.1
+    environment:
+      POSTGRES_PASSWORD: quire_backend
+      POSTGRES_USER: quire_backend
+      POSTGRES_DB: quire_backend_development
+    container_name: quire_backend_database_development
+    restart: always
+    volumes:
+      - development-database-data-volume:/var/lib/postgresql/data
+    networks:
+      - quire_backend_network
+
+  quire_backend_test_database:
+    <<: *database
+    environment:
+      POSTGRES_PASSWORD: quire_backend
+      POSTGRES_USER: quire_backend
+      POSTGRES_DB: quire_backend_test
+    container_name: quire_backend_database_test
+    volumes:
+      - test-database-data-volume:/var/lib/postgresql/data
+    networks:
+      - quire_backend_network
+
+  quire_backend_redis:
+    container_name: quire_backend_redis
+    image: redis
+    restart: always
+    networks:
+      - quire_backend_network

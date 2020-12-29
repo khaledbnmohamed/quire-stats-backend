@@ -1,0 +1,813 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+ar:
+  formtastic:
+    :update:  ' تحديث %{model} '
+    :yes: 'نعم'
+    :no: 'لا'
+    :create: 'حفظ %{model}'
+    :submit: 'حفظ %{model}'
+    :cancel: 'الغاء %{model}'
+    :reset: 'إعادة تعيين %{model}'
+    :required: 'مطلوب'
+  activerecord:
+    models:
+      absher_credential:
+        one: بيانات أبشر
+        other: بيانات أبشر
+      admin_user_mfa_session:
+        one: جلسة الدخول
+        other: جلسات الدخول
+      admin_user:
+        zero: مديري النظام
+        one: مدير النظام
+        two: مديران النظام
+        few: مديري النظام
+        many: مديري النظام
+        other: مديري النظام
+      api_key:
+        zero: نقاط إتصال
+        one: نقطة إتصال
+        two: نقطتان إتصال
+        few: نقاط إتصال
+        many: نقاط إتصال
+        other: نقاط إتصال
+      company_user:
+        zero: مستخدم
+        one: مستخدم
+        two: مستخدمان
+        few: مستخدمون
+        many: مستخدم
+        other: مستخدم
+      payment:
+        zero: مدفوعات
+        one: مدفوع
+        two: مدفوعان
+        few: مدفوعات
+        many: مدفوعات
+        other: المدفوعات
+      payment_api_log:
+        zero: المدفوعات
+        one: المدفوعات
+        two: المدفوعات
+        few: المدفوعات
+        many: المدفوعات
+        other: المدفوعات
+      configuration:
+        zero: إعداد
+        one: إعداد
+        two: إعدادان
+        few: الإعدادات
+        many: الإعدادات
+        other: الإعدادات
+        key: الإعداد
+      contract:
+        zero: عقد
+        one: عقد
+        two: عقدان
+        few: عقود
+        many: عقود
+        other: عقود
+      contracts_request:
+        zero: طلب عقد
+        one: طلب عقد
+        two: طلبان عقد
+        few: طلبات عقود
+        many: طلب عقد
+        other: طلبات عقود
+      invitation:
+        zero: دعوة
+        one: دعوة
+        two: دعوتان
+        few: دعوات
+        many: دعوات
+        other: دعوات
+      notification:
+        zero: إشعار
+        one: إشعار
+        two: إشعاران
+        few: إشعارات
+        many: إشعار
+        other: إشعار
+      employee:
+        zero: الموظف
+        one: الموظف
+        two: الموظفان
+        many: الموظفون
+        few: الموظفون
+        other: الموظفون
+      company:
+        zero: الشركة
+        one: الشركة
+        two: الشركتان
+        many: الشركات
+        few: الشركات
+        other: الشركات
+      subscription_package:
+        zero: الباقة
+        one: الباقة
+        two: الباقتان
+        many: الباقات
+        few: الباقات
+        other: الباقات
+      city:
+        zero: مدينة
+        one: مدينة
+        two: مدينتان
+        few: مدن
+        many: مدن
+        other: مدن
+      skill:
+        zero: المهارة
+        one: المهارة
+        two: المهارتان
+        few: المهارات
+        many: المهارات
+        other: المهارات
+      company_activity:
+        zero: نشاط
+        one: نشاط
+        two: نشاطين
+        few: بعض الأنشطة
+        many: أنشطة الشركات
+        other: أنشطة الشركات
+      cancellation_reason:
+        zero: أسباب الإلغاء
+        one: سبب الإلغاء
+        two:  أسباب الإلغاء
+        few:  أسباب الإلغاء
+        many:  أسباب الإلغاء
+        other: أسباب الإلغاء
+      gosi_job_title:
+        zero: مسمى وظيفي
+        one: مسمى وظيفي
+        two: مسميان وظيفيان
+        few: مسميات وظيفية
+        many: مسمى وظيفي
+        other: مسمى وظيفي
+    attributes:
+      basic: &basic_attrs
+        id: "م"
+        created_at: "تاريخ الإنشاء"
+        updated_at: "تاريخ التحديث"
+      absher_credential:
+        <<: *basic_attrs
+        birth_place: مكان الميلاد
+        dob: تاريخ الميلاد الميلادي
+        dob_hijri: تاريخ الميلاد الهجري
+        first_name: الاسم الأول
+        full_name: الاسم بالكامل
+        gender: النوع
+        last_name: الاسم الأخير
+        martial_code: الكود العسكري
+        national_number: الرقم القومي
+        second_name: الاسم الثاني
+        third_name: الاسم الثالث
+      admin_user:
+        <<: *basic_attrs
+        email: البريد الإلكترونى
+        encrypted_password: كلمة المرور المشفرة
+        google_secret: رمز جوجل
+        otp_enabled: كلمة المرور لمرة واحدة مفعلة
+        remember_created_at: تذكر تاريخ الإنشاء
+        reset_password_sent_at: تاريخ إرسال إعادة تعيين كلمة المرور
+        reset_password_token: رمز إعادة تعيين كلمة المرور
+        sign_in_count: عدد مرات تسجيل الدخول
+        current_sign_in_at: تاريخ الدخول
+        role: وظيفة
+        roles:
+          inspector: "مراقب"
+          super_admin: مدير النظام
+        password: كلمة المرور
+        password_confirmation: تأكيد كلمة المرور
+      api_key:
+        <<: *basic_attrs
+        company_id: مزود الخدمة
+        company: مزود الخدمة
+        secret_key: المفتاح السري
+        client_number: مفتاح العميل
+        description: الوصف
+      company:
+        <<: *basic_attrs
+        accepted_at: تاريخ الموافقة
+        company_register_doc: السجل التجاري
+        company_type: نوع الشركة
+        email: البريد الإلكترونى
+        gosi_doc: شهادة التأمينات الإجتماعية
+        hiring_license_doc: ترخيص نشاط توظيف السعوديين
+        name: الاسم
+        national_address_doc: عنوان المنشأة
+        neighborhood: الحي
+        street_number: الشارع
+        building_number: رقم المبني
+        additional_number: الرقم الإضافي
+        representative: "ممثل المنشأة"
+        representative_nationality: "جنسية ممثل المنشأة"
+        representative_phone: "هاتف ممثل المنشأة"
+        representative_email: "البريد الإلكتروني لممثل المنشأة"
+        application_name: "التطبيق"
+        rejected_at: تاريخ الرفض
+        rejected_reason: سبب الرفض
+        sequence_number: رقم المنشأة
+        state: الحالة
+        sub_activity_number: رقم النشاط التجاري
+        total_saudi_employees: عدد الموظفيين السعوديين
+        trademark_doc: شهادة تسجيل العلامة التجارية
+        waiting_for_review_at: تاريخ انتظار الموافقة
+        zakkah_income_doc: شهادة الزكاة والدخل
+        company_user_id: مالك المنشأة
+        company_user: مالك المنشأة
+        labor_office_id: مكتب العمل
+        labor_office: مكتب العمل
+        gosi_registration_number: "الرقم التأميني"
+        commercial_register_number: "السجل التجاري"
+        activity: النشاط
+        contracts_quota: حصة العقود
+        has_company_activity: نشاط الشركة يسمح لها بإنشاء عقود
+        company_number: "رقم الشركة"
+        states:
+          pending: لم يتم تقديم الأوراق بعد
+          waiting_for_review: بانتظار المراجعة
+          accepted: مقبول
+          rejected: مرفوض
+      company_user:
+        <<: *basic_attrs
+        email: البريد الإلكترونى
+        exID: رقم
+        first_name: الاسم الأول
+        last_name: الاسم الأخير
+        phone: الهاتف
+        title: المسمى الوظيفي
+        username: اسم المستخدم
+      contract/state:
+        <<: *basic_attrs
+        created: "لم يتم التعيين بعد"
+        pending: "تحت الإجراء"
+        assigned: "فى إنتظار موافقة العامل"
+        accepted: "فى إنتظار الدفع"
+        rejected: "تم الرفض من العامل"
+        ended: "تم انتهاء العقد"
+        canceled: "تم الغاء العقد"
+        verified: "موثق"
+        paid: "عقد موثق"
+        drafted: "مسودة"
+        waiting_for_verification: "موثق"
+      contract:
+        <<: *basic_attrs
+        job_title: "المسمي الوظيفي"
+        location: "المكان"
+        location_ar_name: "المكان باللغة العربية"
+        start_date: "تاريخ البدء"
+        end_date: "تاريخ الإنتهاء"
+        total_rate: "إجمالي المرتب"
+        hourly_rate: "سعر الساعة"
+        employer: "صاحب العمل"
+        acceptance_date: "تاريخ قبول العقد"
+        employer_id: "صاحب العمل"
+        service_provider: "مزود الخدمة"
+        service_provider_id: "مزود الخدمة"
+        employee: "الموظف"
+        employee_id: "الموظف"
+        state: "الحالة"
+        total_working_hours: "إجمالي عدد الساعات"
+        employer_name: "اسم صاحب العمل"
+        service_provider_name: "اسم مزود الخدمة"
+        created: "إنشاء"
+        pending: "تحت الإجراء"
+        assigned: "تعيين موظف"
+        accepted: "قبول"
+        rejected: "رفض"
+        ended: "إنهاء"
+        canceled: "إلغاء"
+        verified: "موثق"
+        employer_accepted: "قبول" #enum translation
+        employer_rejected: "رفض"
+        waiting_for_verification: "قبول"
+        paid: "دفع"
+        gosi_verified: "موثق من قبل التأمينات الإجتماعية"
+        working_hours_per_day: "عدد ساعات العمل اليومية"
+        working_hours_per_week: "عدد ساعات العمل الإسبوعية"
+        number: "رقم العقد"
+        actual_worked_hours_at_cancellation: "ساعات العمل المنُنجزه عند الإلغاء"
+        calculated_worked_hours_at_cancellation: "ساعات العمل المحسوبة عند الإلغاء"
+        cancellation_date: "تاريخ الإلغاء"
+        cancellation_comment: "التعليق عند الإلغاء"
+        company_number: "رقم الشركة"
+        company_activity: "نشاط الشركة"
+        cancellation_reason_ar: "سبب الإلغاء بالعربية"
+        cancellation_reason_en: "سبب الإلغاء بالإنجليزية"
+        employee_name: "اسم الموظف"
+        employee_email: "البريد الإلكتروني للموظف"
+        employee_mobile: "جوال الموظف"
+        employee_gender: "نوع الموظف"
+        employee_absher_credential_national_number: "رقم هوية الموظف"
+        employee_absher_credential_dob_hijri: "تاريخ الميلاد الهجري للموظف"
+        employee_biography: "السيرة الذاتية للموظف"
+        employee_years_of_experience: "عدد سنوات الخبرة للموظف"
+        gosi_job_title: "المسمى الوظيفي في التأمينات الإجتماعية"
+        gosi_job_title_en_name: "المسمى الوظيفي في التأمينات الإجتماعية باللغة الإنجليزية"
+        gosi_job_title_ar_name: "المسمى الوظيفي في التأمينات الإجتماعية باللغة العريبة"
+        gosi_job_title_code: "رمز المسمي الوظيفي"
+        gosi_job_title_id: "المسمى الوظيفي في التأمينات الإجتماعية"
+        created_through_api: أُنشىء عن طريق نقاط الاتصال
+      contracts_request:
+        <<: *basic_attrs
+        file: الملف
+        result: النتيحة
+        state: الحالة
+        api_key_id: نقطة الاتصال
+        api_key: نقطة الاتصال
+        company: المستخدم
+        company_id: المستخدم
+        reference_number: الرقم المرجعي
+        states:
+          pending: قيد الانتظار
+          in_progress: جار المعالجة
+          passed: تم بنجاح
+          failed: حدث خطأ
+      subscription_package:
+        <<: *basic_attrs
+        name: "الإسم"
+        contracts_limit: "عدد العقود"
+        expiration_date: "تاريخ إنتهاء الصلاحية"
+        price: "السعر"
+        active: "مفعل"
+      invitation:
+        <<: *basic_attrs
+        invitation_token: رمز
+        status: الحالة
+        absher_credential_id: بيانات أبشر
+        absher_credential: بيانات أبشر
+        contract_id: العقد
+        contract: العقد
+        inviter_id: الراسل
+        inviter: الراسل
+        contract_number: رقم العقد
+        absher_credential_full_name: اسم الموظف
+        statuses:
+          drafted: مسودة
+          pending: قيد الإنتظار
+          accepted: مقبولة
+          rejected: مرفوضة
+      notification:
+        <<: *basic_attrs
+        extra: ملعومات اضافية
+        message: الرسالة
+        notifiable: السبب
+        read: مقروءة
+        receiver: المُستقبل
+        sender: الراسل
+      skill:
+        <<: *basic_attrs
+        ar_name: 'اسم المهارة باللغة العربية'
+        en_name: 'اسم المهارة باللغة الانجليزية'
+      company_activity:
+        <<: *basic_attrs
+        ar_activity_name: 'نشاط الشركة باللغة العربية'
+        en_activity_name: 'نشاط الشركة باللغة الانجليزية'
+        sub_activity_number: 'رقم النشاط الفرعى'
+        parent_activity_name: 'اسم النشاط الرئيسى'
+        contracts_percentage: 'نسبة العقود المتاحة'
+        parent: 'النشاط الرئيسى'
+        parent_id: 'النشاط الرئيسى'
+      payment:
+        <<: *basic_attrs
+        amount: 'القيمة'
+        bill_number: 'رقم الفاتورة'
+        checkout_url: 'رابط الدفع'
+        due_date: 'تاريخ انتهاء الصلاحية'
+        status: 'الحالة'
+        contract: 'العقد'
+        contract_id: 'العقد'
+        payer: 'الدافع'
+        payer_id: 'الدافع'
+        reference_number: "الرقم المرجعي"
+        statuses:
+          pending: قيد الإنتظار
+          accepted: مقبول
+          rejected: مرفوض
+      payment_api_log:
+        <<: *basic_attrs
+        bill_number: 'رقم الفاتورة'
+        contract_id: 'العقد'
+        contract: 'العقد'
+        error_code: رمز الخطأ
+        log_type: نوع السجل
+        payload: الرد
+      configuration:
+        <<: *basic_attrs
+        key: الإعداد
+        value: القيمة
+      employee:
+        <<: *basic_attrs
+        email: البريد الإلكترونى
+        name: الاسم
+        mobile: الجوال
+        blocked: محظور
+        blocked_until: محظور حتى
+        years_of_experience: عدد سنوات الخبرة
+        avatar: صورة الملف الشخصي
+        biography: السيرة الذاتية
+        skill_ids: المهارات
+        job_title: المسمى الوظيفي
+        city_id: المدينة
+        city: المدينة
+        password: كلمة المرور
+        blocked_resend_otp: محظور من اعادة ارسال الرمز التاكيدي
+        blocked_resend_otp_until: محظور من اعادل ارسال الرمز التأكيدي حتى
+        failed_otp_tries_counter: عدد محاولات الرمز التاكيدي الفاشلة
+        first_login: اول تسجيل دخول
+        otp_counter: عدد مرات ارسال الكود التاكيدي
+        otp_secret_key: الرمز السري للكود التاكيدي
+        resend_otp_attempts_window: فترة السماح لارسال الرمز التأكيدي
+        resend_otp_tries_counter: عدد محاولات ارسال الرمز التأكيدي
+        wrong_otp_attempts_window: فترة محاولات ارسال الكود التاكيدي الفاشلة
+        absher_credential_id: بيانات أبشر
+        updater_admin_user: مُعدل من قِبل مدير النظام
+        deleted_updater_email: بريد الاكتروني معدل النظام الممسوح
+        updated_by_admin_user_at: تاريخ التعديل من قِبل مدير النظام
+      city:
+        <<: *basic_attrs
+        ar_name: 'اسم المدينة باللغة العربية'
+        en_name: 'اسم المدينة باللغة الانجليزية'
+      cancellation_reason:
+        <<: *basic_attrs
+        ar_name: 'سبب الرفض باللغة العربية'
+        en_name: 'سبب الرفض باللغة الانجليزية'
+        active: مفعل
+      gosi_job_title:
+        <<: *basic_attrs
+        ar_name: المسمى الوظيفي باللغة العربية
+        en_name: المسمي الوظيفي باللغة الإنجليزية
+        code: كود
+    errors:
+      models:
+        api_key:
+          attributes:
+            company_id:
+              accepted_service_provider: يجب اختيار مزود خدمة مقبول
+            company:
+              required: يجب اختيار مزود خدمة او صاحب عمل
+        contract:
+          attributes:
+            base:
+              quota: "لقد تجاوزت العدد المسموح من العقود المرنة عن الفترة من %{start_date} إلى %{end_date}"
+              present_company_activity: "نشاط المنشأة غير مسموح له بإنشاء عقود ضمن برنامج العمل المرن"
+            job_title:
+              blank: "لا يمكن ان يكون العنوان فارغ"
+            start_date:
+              invalid: "لا يمكن أن يكون %{attribute} في الماضي"
+            end_date:
+              invalid: "لابد أن يكون %{attribute} أكبر من أو يساوي تاريخ البدء"
+              exceed_max_range: "لابد أن يكون تاريخ الإنتهاء عام أو أقل منذ تاريخ البدء"
+            gosi_job_title:
+              required: "يجب اختيار المسمى الوظيفي في التأمينات الإجتماعية"
+            actual_worked_hours_at_cancellation:
+              invalid: "يجب أن يكون إجمالي ساعات العمل المنٌجزه بحد أقصي %{max} ساعات وحد أدني  %{min} ساعات"
+            location:
+              required: يجب ادخال %{attribute}
+        contracts_request:
+          attributes:
+            company:
+              required: يجب ادخال الشركة
+        subscription_package:
+          attributes:
+            price:
+              greater_than: "يجب أن يكون السعر أكبر من %{count}"
+            contracts_limit:
+              greater_than: "يجب أن يكون عدد العقود أكبر من %{count}"
+            expiration_date:
+              invalid: "لا يمكن أن يكون محتوى تاريخ إنتهاء الصلاحية اليوم أو في الماضي"
+        employee:
+          attributes:
+            absher_credential_id:
+              taken: "هذه البيانات مرتبطة بحساب مُفعل لدينا من قبل"
+            email:
+              title: 'البريد الإلكتروني'
+              taken: 'البريد الإلكتروني مستخدم من قبل'
+              invalid: 'غير صالح'
+              blank: 'لا يمكن أن يكون فارغا'
+            mobile:
+              title: 'الجوال'
+              taken: 'الجوال مستخدم من قبل'
+              invalid: 'غير صالح'
+              blank: 'لا يمكن أن يكون فارغا'
+            password:
+              blank: 'لا يمكن أن يكون فارغا'
+              too_short: 'اقصر من 8 أحرف'
+            password_confirmation:
+              blank: 'لا يمكن أن يكون فارغا'
+              confirmation: "كلمة المرور غير مطابقة"
+        absher_credential:
+          attributes:
+            national_number:
+              title: 'رقم الهوية'
+              taken: 'رقم الهوية مستخدم من قبل'
+        invitation:
+          attributes:
+            employee_id:
+              overlapped_contracts: "يوجد عقد مفعل مع نفس الموظف يتداخل مع المدة الزمنية للعقد"
+              overlapped_invitations: "يوجد دعوة في حالة انتظار لنفس الموظف"
+              overlapped_drafted_invitations: "هذا العامل تم إضافته لعقد آخر في إنتظار المراجعة برقم #%{number}"
+              overlapped_contract_more_than_30_days: "عفوا لا يمكنك تعيين هذا العقد لهذا العامل فى هذه الفترة لوجود عقد آخر خلال ال 30 يوم السابقة/القادمة لنفس العامل"
+              overlapped_working_hrs_more_than_95_hrs: "عفواً مجموع ساعات العامل في خلال 30 يوم تتعدى %{hrs_count} ساعة"
+        company:
+          attributes:
+            gosi_registration_number:
+              greater_than: "يجب أن يكون الرقم التأميني أكبر من %{count}"
+            labor_office_id:
+              already_taken_for_invited_company: "لقد قمت بدعوة هذه المنشأة من قبل"
+              already_taken_for_registered_company: "هذه المنشأة مسجلة بالفعل"
+            rejected_reason:
+              blank: "لا يمكن ان يكون سبب الرفض فارغ"
+  absher:
+    get_user_details_error: "عفوا تعذر الوصول لهذا المستخدم"
+    send_sms_to_user_error: "عفواً تعذر إرسال الرسالة لهذا المستخدم"
+    national_number: 'رقم الهوية'
+    dob: تاريخ الميلاد الهجري
+  generic:
+    unauthorized: "عفواً لا تمتلك صلاحية إتمام هذه العملية"
+  contracts:
+    auto_cancelation_reason: "تم الإلغاء تلقائيا من قبل النظام"
+    notification:
+      message: "لقد تم %{state} عقد رقم %{number} من قبل %{name} الخاص بوظيفة %{job_title}"
+      employer_accepted_message: "لقد تم %{state} عقد رقم %{number} من قبل %{name} وبناء علي ذلك تم إرسال العقد للموظف"
+      employer_rejected_message: "لقد تم %{state} عقد رقم %{number} من قبل %{name}"
+      cancel_subject: "تم إلغاء عقد رقم %{number}"
+      cancel_message: "لقد تم إلغاء العقد رقم %{number}, للتفاصيل قم بمراجعة حسابك علي مرن"
+      auto_cancel_message: "لقد تم إلغاء العقد رقم %{number} تلقائياً بواسطة النظام للتفاصيل قم بمراجعة حسابك علي مرن"
+    success:
+      accept: "تم قبول العقد"
+      reject: "تم رفض العقد"
+      employer_accept: "تم قبول العقد"
+      employer_reject: "تم رفض العقد"
+      cancel: "تم إلغاء العقد بنجاح"
+    failure:
+      cancel: "حدث خطأ لايمكن إلغاء العقد"
+    delete:
+      error: "حدث خطأ لايمكن مسح العقد"
+  contract:
+    invite_to_contract: "أنت مدعو للعمل ك%{job_title} من خلال منصة مرن. يرجى التحقق من تفاصيل العقد من خلال %{url}"
+    inform_employee_on_paid: "لقد تم توثيق العقد رقم %{number} عن طريق دفع الرسوم من قبل صاحب العقد"
+    notifications:
+    read_successfully: "تم قراءة التنبيه بنجاح"
+  contracts_requests:
+    success: "تم استقبال طلبك بنجاح"
+    failure: "عذرا لم نتمكن من تسجيل طلبك"
+  configurations:
+    details: تفاصيل الإعداد
+  api:
+    login:
+      error_messages:
+        invalid_national_id_or_password: 'رقم الهوية او كلمة المرور غير صحيحة'
+        invalid_national_id: 'رقم الهوية غير صحيح'
+        blocked: ' لقد تجاوزت عدد محاولات ادخال رمز التأكيد. يرجى اعادة المحاولة فى %{until}'
+    logout:
+      success_messages:
+        valid_logout: 'لقد تم تسجيل الخروج بنجاح'
+    authenticate_otp:
+      error_messages:
+        invalid_otp_code: 'رمز التحقق غير صحيح'
+        authentication_error: 'خطأ في التحقق من رمز التحقق'
+      success_messages:
+        otp_sent: 'تم ارسال الرسالة بنجاح'
+        otp_valid: 'تم التحقق من الرقم التأكيدي بنجاح'
+        otp_code_subject: "رسالة نصية: الرقم التأكيدى للجوال %{mobile}"
+        otp_code_message: "مرحباً بك في مرن! رمز التحقق لتسجيل الدخول: %{otp_code}"
+    mobile:
+      mobile_changed: تم تغيير رقم الجوال بنجاح
+    password:
+      password_changed: 'تم تغيير كلمة المرور بنجاح'
+    resend_otp:
+      error_messages:
+        exceeded_number_of_tries: 'عفواً لقد تجاوزت الحد الأقصى من عدد محاولات إعادة أرسال رمز التحقق'
+    gosi_job_titles:
+      invalid_params: "برجاء ارسال المسمى الوظيفي باللغة العربية أو المسمى الوظيفي باللغة الإنجليزية"
+      min_params_length: "يجب إدخال %{count} أحرف على الأقل"
+    cities:
+      invalid_params: "برجاء ارسال المدينة باللغة العربية أو باللغة الإنجليزية"
+      min_params_length: "يجب إدخال %{count} أحرف على الأقل"
+    error_messages:
+      empty_company_activity: نشاط المنشأة غير مسموح له بإنشاء عقود ضمن برنامج العمل المرن
+    companies:
+      invalid_params: "برجاء ارسال  اسم الشركة أو رقمها "
+      min_params_length: "يجب إدخال %{count} أحرف على الأقل"
+  gosi:
+    not_eligible: "هذا الموظف غير مصرح له بالعمل مع الشركة"
+  payment:
+    api_error: حدث خطأ , لا يمكن المضي في الدفع
+  absher_credential:
+    invalid_absher_credential_verification: "لم نتمكن من التأكد من البيانات, برجاء مراجعة رقم الهوية أو تاريخ الميلاد"
+    gender:
+      female: "أنثي"
+      male: "ذكر"
+  nationality:
+    saudi: سعودي
+  active_admin:
+    download: تحميل
+    site_title: برنامج العمل المرن
+    google_authentication_code: "كود Google Authentication"
+    enter_google_code: "أدخل الكود"
+    enable: تفعيل
+    disable: إيقاف
+    scan_qrcode: "برجاء حذف الرمز السابق من التطبيق عند إعادة التنشيط."
+    toggle_otp: "%{state} خاصية جوجل"
+    toggle_otp_succeeded: "تم %{state} خاصية جوجل بنجاح"
+    toggle_otp_error: "حدث خطأ"
+    wrong_code: "الكود الذي ادخلته غير صحيح"
+    enable_google_authentication: "برجاء تفعيل خاصية Google Authentication من ملفك الشخصي "
+    install_google_authenticator:  "برجاء تثبيت برنامج Google Authenticator علي هاتفك"
+    launch_app_store: "افتح متجر التطبيقات و ابحث عن Google Authentication"
+    scan_code: "امسح رمز الـ QR أدناه لبدء المزامنة."
+    enter_code: "ادخل الكود ثم اضغط تفعيل"
+    later: "لاحقًا"
+    activate: "تفعيل"
+    deactivate: "إيقاف"
+    successfully_toggle_activation_value_true: "تم تفعيل الباقة بنجاح"
+    successfully_toggle_activation_value_false: "تم إيقاف الباقة بنجاح"
+    new_model: "أضف %{model}"
+    admin_user:
+      password_changed: لقد تم نغيير كلمة المرور بنجاح
+      change_your_password: يرجي كتابة كلمة المرور الجديدة
+    provide_rejection_reason: "يرجي ادخال سبب الرفض"
+    ok: نعم
+    cancel: الغاء
+    confirmation_rejection_reason: هل انت واثق من انك تريد رفض مزود الخدمة
+    pagination:
+      one_page: "عرض <b>%{n}</b> %{model}"
+    filters:
+      payer_id_eq: رقم الشركة
+      payable_of_Contract_type_number_eq: رقم العقد
+      contract_number_eq: رقم العقد
+      inviter_id: رقم الداعي
+      service_provider_id_eq: مزود الخدمة
+      employer_id_eq: صاحب العمل
+      predicates:
+        from: من
+        to: إلي
+        contains: "يحتوي على"
+        equals: "يساوي"
+        starts_with: "يبدأ ب"
+        ends_with: "ينتهي ب"
+        greater_than: "اكبر من"
+        less_than: "أقل من"
+        gteq_datetime: "أكبر من أو يساوي"
+        lteq_datetime: "أصغر من أو يساوي"
+      autocomplete_messages:
+        loading: "جاري التحميل"
+        input_too_short: "ثلاث أحرف علي الأقل "
+        error: "حدث خطأ"
+        no_results: "لا يوجد بيانات مطابقة"
+    resources:
+      api_keys:
+        download_csv_sample_company:  نموذج ملف العقود للشركات
+        download_csv_sample_sp: نموذج ملف العقود لمزودي الخدمة
+
+      company_activity:
+        edit_model: "تعديل نشاط شركة"
+        new_model: "إضافة نشاط شركة"
+        delete_model: "حذف نشاط شركة"
+    devise:
+      login:
+        submit: "تسجيل الدخول"
+    company:
+      acceptance_sp_notice: تم قبول مزود الخدمة
+      rejection_sp_notice: تم رفض مزود الخدمة
+      acceptance_sp_confirmation: هل انت واثق من انك تريد قبول مزود الخدمة
+      rejection_sp_confirmation: هل انت واثق من رفض مزود الخدمة
+      accept_sp: قبول مزود الخدمة
+      reject_sp: رفض مزود الخدمة
+    placeholders:
+      sub_activity_number: "برجاء التأكد من صحة و موافقة رقم النشاط الفرعى للشركة طبقا للخدمة الإلكترونية"
+    scopes:
+      all: "الكل"
+      companies:
+        employer: "أصحاب الأعمال"
+        service_provider: "مزودي الخدمة"
+        pending_service_providers: "في إنتظار إكمال المستندات المطلوبة"
+        waiting_for_review_service_providers: "مزودي خدمة في إنتظار المراجعة"
+        rejected_service_providers: "مزودي خدمة تم رفضهم"
+        accepted_service_providers: "مزودي خدمة تم قبولهم"
+  employer_mailer:
+    notify_for_contract_created_on_behalf:
+      subject: "تم إنشاء عقد باسمك"
+      body: "لقد قام مزود الخدمة %{service_provider_name} بإنشاء عقد بالنيابة عن منشأتك قم بزيارة هذا الرابط أدناه للمراجعة وإتخاذ الإجراء اللازم"
+      cancellation_notice:  "في حالة عدم إتخاذ إجراء سوف يتم إلغاء هذا العقد تلقائياً بواسطة النظام "
+  sms_mailer:
+    invitation:
+      subject: "رسالة نصية إلى %{receiver}"
+  invoice_logs_mailer:
+    send_weekly_invoice_logs:
+      subject: "تذكير: موعد استحقاق المرتب الأسبوعى"
+      content: "يرجى العلم ان اليوم هو موعد الدفعة الإسبوعية من قيمة الراتب الخاص بالعقد رقم %{contract_number} و البالغ قيمتها %{invoice_amount}"
+      invoices_link: "يمكنك تصفح الدفعات الخاصة بك عن طريق ذلك الرابط"
+      hint: تحسب قيمة المرتب الأسبوعى تلقائيا بواسطة النظام، وقد تختلف طبقا للاتفاق بين الطرفين
+  admin_user_mailer:
+    inspector_created:
+      subject: تم اضافتك كمراقب
+      change_your_password: يمكنك وضع كلمة المرور الخاصة بك
+  service_provider_mailer:
+    accepted:
+      subject: "تم قبول طلبك للإنضمام كمزود خدمة لمنصة مرن"
+      content: "يرجي العلم أن حالة الطلب الخاص بإنضمامك لمنصة مرن كمزود خدمة هي مقبول"
+      body: "يمكنك الآن التمتع بجميع المزايا الأساسية المتاحة لك كمزود خدمة للتوظيف ضمن برنامج العمل المرن"
+      login: "تسجيل دخول"
+    rejected:
+      subject: "تم رفض طلبك للإنضمام كمزود خدمة لمنصة مرن"
+      content: "يرجي العلم أن حالة الطلب الخاص بإنضمامك لمنصة مرن كمزود خدمة هي مرفوض"
+      body: "سبب الإلغاء الطلب هو %{reason}"
+      reupload: "تعديل بياناتك"
+    invite:
+      subject: "تم دعوتك للإلتحاق بمنصة مرن"
+      body: "تم دعوتك للإلتحاق بمنصة مرن كصاحب عمل"
+      invite: "الإنضمام لمرن"
+  company_mailer:
+    invite:
+      subject: تم دعوتك للإلتحاق بمنصة مرن كصاحب عمل
+      body: تم دعوتك للإلتحاق بمنصة مرن كصاحب عمل
+  mailer:
+    welcoming_admin: تم اضافتك كمراقب
+    change_my_password: يمكنك وضع كلمة المرور الخاصة بك
+  errors:
+    messages:
+      service_unavailable:
+        sso:
+          empty_response: "لم نحصل علي رد بخصوص شركات هذا المستخدم من خدمة النفاذ الموحد برجاء المحاولة في وقت لاحق"
+          corrupted_response: "تعذر الوصول لشركات هذا المستخدم من خدمة النفاذ الموحد برجاء المحاولة في وقت لاحق"
+          host_unreachable: " تعذر الوصول لخدمة النفاذ الموحد،برجاء المحاولة في وقت لاحق أو اضغط علي الزر أدناه"
+        gosi_employee_eligibilty: " تعذر الوصول للبيانات اللازمة من خدمة التأمينات الإجتماعية برجاء المحاولة في وقت لاحق"
+        nlg_service:
+          generic: "تعذر الوصول لنشاط المنشأة برجاء المحاولة في وقت لاحق"
+          labor_office_error: "تعذر الوصول لنشاط المنشأة لوجود خطأ برقم مكتب العمل برجاء مراجعة مسئولو خدمة النفاذ الموحد"
+
+      carrierwave_processing_error: حدث خطأ أثناء محاولة اتمام العملية
+      carrierwave_integrity_error: صيغة الملف غير مدعومة
+      carrierwave_download_error:  حدث خطأ أثناء محاولة تحميل الملف
+      extension_whitelist_error: "لا يمكنك رفع ملف بصيغة %{extension}, الصيغ المدعومة: %{allowed_types}"
+      extension_blacklist_error: "لا يمكنك رفع ملف بصيغة %{extension}, الصيغ الممنوعة: %{prohibited_types}"
+      content_type_whitelist_error: "لا يمكنك رفع ملف بصيغة محتوى %{content_type}"
+      content_type_blacklist_error: "لا يمكنك رفع ملف بصيغة محتوى %{content_type}"
+      rmagick_processing_error: "حدث خطأ أثناء محاولة تعديل الصورة، الرجاء التأكد من الملف المرفوع"
+      mini_magick_processing_error: "حدث خطأ أثناء محاولة تعديل الصورة، الرجاء التأكد من الملف المرفوع، الخطأ: %{e}"
+      min_size_error: "حجم الملف المرفوع يجب أن يكون أكبر من %{min_size}"
+      max_size_error: "حجم الملف المرفوع يجب أن يكون أقل من %{max_size}"
+  devise:
+      failure:
+        admin_user:
+          invalid: البيانات المدخلة غير صحيحة
+          not_found_in_database: البيانات المدخلة غير صحيحة
+          last_attempt: لديك محاولة واحدة قبل غلق حسابك.
+          locked: تم غلق حسابك مؤقتا، من فضلك حاول مجدداً لاحقاً.
+        unauthenticated: تحتاج إلى تسجيل الدخول قبل المتابعة
+  helpers:
+    page_entries_info:
+      entry:
+        zero: "قيد"
+        one: "قيد"
+        two: "قيدان"
+        few: "قيود"
+        many: "قيد"
+        other: "قيد"
+      more_pages:
+        display_entries: "عرض %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> من <b>%{total}</b>"
+      one_page:
+        display_entries:
+          one: "عرض <b>%{count}</b> %{entry_name}"
+          other: "عرض <b>العدد الكلي %{count}</b> %{entry_name}"
+          zero: "لا يوجد %{entry_name}"
+  views:
+    pagination:
+      first: "&laquo; الأولى"
+      last: "الأخيرة &raquo;"
+      next: "التالية &rsaquo;"
+      previous: "&lsaquo; السابقة"
+      truncate: "&hellip;"

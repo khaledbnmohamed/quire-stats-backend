@@ -1,0 +1,52 @@
+# PostgreSQL. Versions 9.3 and up are supported.
+#
+# Install the pg driver:
+#   gem install pg
+# On macOS with Homebrew:
+#   gem install pg -- --with-pg-config=/usr/local/bin/pg_config
+# On macOS with MacPorts:
+#   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config
+# On Windows:
+#   gem install pg
+#       Choose the win32 build.
+#       Install PostgreSQL and put its /bin directory on your path.
+#
+# Configure Using Gemfile
+# gem 'pg'
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5432
+
+development:
+  <<: *default
+  database: <%= ENV['DEVELOPMENT_QUIRE_BACKEND_DATABASE_DATABASE_NAME'] %>
+  username: <%= ENV['DEVELOPMENT_QUIRE_BACKEND_DATABASE_USER'] %>
+  password: <%= ENV['DEVELOPMENT_QUIRE_BACKEND_DATABASE_PASSWORD'] %>
+  host:     <%= ENV['DEVELOPMENT_QUIRE_BACKEND_DATABASE_HOST_NAME'] %>
+
+test:
+  <<: *default
+  database: <%= ENV['TEST_QUIRE_BACKEND_DATABASE_DATABASE_NAME'] %>
+  username: <%= ENV['TEST_QUIRE_BACKEND_DATABASE_USER'] %>
+  password: <%= ENV['TEST_QUIRE_BACKEND_DATABASE_PASSWORD'] %>
+  host:     <%= ENV['TEST_QUIRE_BACKEND_DATABASE_HOST_NAME'] %>
+
+staging:
+  <<: *default
+  database: <%= ENV['STAGING_QUIRE_BACKEND_DATABASE_DATABASE_NAME'] %>
+  username: <%= ENV['STAGING_QUIRE_BACKEND_DATABASE_USER'] %>
+  password: <%= ENV['STAGING_QUIRE_BACKEND_DATABASE_PASSWORD'] %>
+  host:     <%= ENV['STAGING_QUIRE_BACKEND_DATABASE_HOST_NAME'] %>
+
+production:
+  <<: *default
+  database: <%= ENV['PRODUCTION_QUIRE_BACKEND_DATABASE_DATABASE_NAME'] %>
+  username: <%= ENV['PRODUCTION_QUIRE_BACKEND_DATABASE_USER'] %>
+  password: <%= ENV['PRODUCTION_QUIRE_BACKEND_DATABASE_PASSWORD'] %>
+  host:     <%= ENV['PRODUCTION_QUIRE_BACKEND_DATABASE_HOST_NAME'] %>
+  port:     <%= ENV['PRODUCTION_QUIRE_BACKEND_DATABASE_PORT'] %>

@@ -1,0 +1,294 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  activerecord:
+    attributes:
+      basic: &basic_attrs
+        id: "ID"
+        created_at: "Created At"
+        updated_at: "Updated At"
+      contract/state:
+        created: "Created"
+        assigned: "Assigned"
+        accepted: "Accepted"
+        rejected: "Rejected"
+        ended: "Ended"
+        canceled: "Canceled"
+      contract:
+        created: "created"
+        assigned: "assigned"
+        accepted: "accepted"
+        rejected: "rejected"
+        ended: "ended"
+        canceled: "canceled"
+      contracts_request:
+        states:
+          pending: Pending
+          in_progress: In Progress
+          passed: Passed
+          failed: Failed
+      employee:
+        <<: *basic_attrs
+        email: Email
+        name: Name
+        mobile: Mobile
+        blocked: Blocked
+        blocked_until: Blocked Until
+        years_of_experience: Years Of Experience
+        avatar: Avatar
+        biography: Biography
+        skill_ids: Skills
+        job_title: Job Title
+        city_id: City
+        city: City
+        password: Password
+      company_activity:
+        <<: *basic_attrs
+        ar_activity_name: 'Company Activity Arabic Name'
+        en_activity_name: 'Company Activity English Name'
+        sub_activity_number: 'Sub Activity Number'
+        parent_activity_name: 'Main Activity Name'
+        contracts_percentage: 'Available Contracts Percentage'
+        parent: 'Main Activity'
+      gosi_job_title:
+        <<: *basic_attrs
+        ar_name: Arabic Name
+        en_name: English Name
+        code: Code
+      company:
+        <<: *basic_attrs
+        states:
+          pending: Pending
+          accepted: Accepted
+          rejected: Rejected
+          waiting_for_review: Waiting for Review
+        has_company_activity: Company activity eligible for creating contracts
+    errors:
+      models:
+        api_key:
+          attributes:
+            company_id:
+              accepted_service_provider: Please select an accepted service provider
+        contract:
+          attributes:
+            base:
+              quota: "You've exceeded the allowed contracts count for the duration %{start_date} to %{end_date}"
+              present_company_activity: "Sorry, we can't create contract due to absence of association with companies activities"
+            start_date:
+              invalid: "can't be in the past"
+            end_date:
+              invalid: "must be later than or equal start date"
+              exceed_max_range: "end date must be less than or equal 1 year from start date"
+            actual_worked_hours_at_cancellation:
+              invalid: "actual worked hours must be more than %{min} and less than %{max}"
+            gosi_job_title:
+              required: "must choose a gosi job title"
+        contracts_requests:
+          attributes:
+            company:
+              required: "Company is required"
+        employee:
+          attributes:
+            absher_credential_id:
+              taken: 'absher credential already linked to another account'
+            email:
+              title: 'Email'
+              taken: 'already been taken'
+              invalid: 'Invalid'
+              blank: 'can not be blank'
+            mobile:
+              title: 'Mobile Number'
+              invalid: 'Invalid'
+              blank: 'can not be blank'
+              taken: 'already been taken'
+            password:
+              blank: 'can not be blank'
+              too_short: 'can not be less than 8 characters'
+            password_confirmation:
+              blank: 'can not be blank'
+              confirmation: "password confirmation does not match"
+        absher_credential:
+          attributes:
+            national_number:
+              title: 'National Number'
+              taken: 'already been taken'
+        invitation:
+          attributes:
+            employee_id:
+              overlapped_contracts: "You have overlapped active contracts with this employee"
+              overlapped_invitations: "You have pending invitation with this employee"
+  absher:
+    get_user_details_error: "We couldn't find any user with this details"
+    send_sms_to_user_error: "We were unable to send sms to this user"
+  generic:
+    unauthorized: "Sorry you are not authorized to take this action"
+  contracts:
+    auto_cancelation_reason: "Canceled automatic by the system"
+    notification:
+      message: "Your contract %{number} has been %{state} from %{name} for %{job_title} Job"
+    success:
+      accept: "Contract successfully accepted"
+      reject: "Contract successfully rejected"
+      cancel: "Contract successfully cancelled"
+    failure:
+      cancel: "Something went wrong !"
+  contract:
+    invite_to_contract: "you have been invited as %{job_title} to contract %{url}"
+    inform_employee_on_paid: "Your contract %{number} has been paid by the contract owner"
+  contracts_requests:
+    success: "Your request has been successfully received"
+    failure: "Sorry, we couldn't save your request"
+  notifications:
+    read_successfully: "Notification has been read successfully"
+    configurations:
+      details: "Configuration details"
+  api:
+    login:
+      error_messages:
+        invalid_national_id_or_password: 'Invalid National ID or Password'
+        invalid_national_id: 'Invalid National ID'
+        blocked: 'You have been blocked from login till that time %{until}'
+    authenticate_otp:
+      error_messages:
+        invalid_otp_code: 'Invalid OTP code'
+        authentication_error: 'Authentication Error'
+      success_messages:
+        otp_valid: 'Successfully otp authentication'
+        otp_code_subject: "SMS: OTP_CODE to %{mobile}"
+        otp_code_message: "Welcome to MRN Portal! Your OTP code is: %{otp_code}"
+    resend_otp:
+      error_messages:
+        exceeded_number_of_tries: 'sorry you exceeded number of OTP resending tries.'
+    mobile:
+      mobile_changed: Mobile number changed successfully
+    password:
+      password_changed: 'Password has successfully changed'
+    gosi_job_titles:
+      invalid_params: "Please provide either Arabic job title or English job title"
+      min_params_length: "Please enter at least %{count} characters"
+    error_messages:
+      empty_company_activity: The company activity is not allowed to create contracts within MRN program.
+  gosi:
+    not_eligible: "This employee not eligible to work with the company"
+  payment:
+    api_error: 'Something went wrong, can not processed with payment'
+  absher_credential:
+    invalid_absher_credential_verification: "Sorry, we couldn't find an associated absher account"
+    gender:
+      female: "female"
+      male: "male"
+  nationality:
+    saudi: "Saudi"
+  active_admin:
+    download: Download
+    site_title: "MRN"
+    enable: Enable
+    disable: Disable
+    toggle_otp: "%{state} Google Authentication"
+    toggle_otp_succeeded: "Google Authentication %{state}d Successfully"
+    scan_qrcode: "scan the QR Code next time!"
+    toggle_otp_error: "Something went wrong"
+    enable_google_authentication: "Kindly enable Google Authentication code from your profile"
+    wrong_code: "The code you have entered is incorrect"
+    install_google_authenticator: "Please Install Google Authenticator on your mobile."
+    launch_app_store: "Launch your application store and search for Google Authentication"
+    scan_code: "Scan the QR Code below to start the synchronisation."
+    enter_code: "Enter the verification code and click on Continue."
+    provide_rejection_reason: "Please provice a rejection reason"
+    later: "Activate later"
+    company:
+      acceptance_sp_notice: Service provider accepted!
+      rejection_sp_notice: Service provider Rejected!
+      acceptance_sp_confirmation: Are you sure you want to accept this service provider ?
+      rejection_sp_confirmation: Are you sure you want to reject this service provider ?
+      accept_sp: Accept service provider
+      reject_sp: Reject service provider
+    admin_user:
+      password_changed: password has been successfully changed
+      change_your_password: please provide the a password
+    resources:
+      api_keys:
+        download_csv_sample: "Contracts CSV Sample"
+      company_activity:
+        delete_model: "Delete Company activity"
+        edit_model: "Edit Company activity"
+        new_model: "New Company Activity"
+        delete_model: "Delete Company Activity"
+    autocomplete_messages:
+      loading: "loading"
+      input_too_short: "input too short"
+      error: "something went wrong"
+      no_results: "no results"
+    placeholders:
+      sub_activity_number: "Please make sure sub-activity number matches returned ISIC4 NLG Service number"
+    scopes:
+      all: "All"
+      companies:
+        employer: Employers
+        service_provider: Service Providers
+        pending_service_providers: Pending Service Providers
+        waiting_for_review_service_providers: Waiting for Review Service Providers
+        rejected_service_providers: RRejected Service Providers
+        accepted_service_providers: Accepted Service Providers
+  sms_mailer:
+    invitation:
+      subject: "SMS to %{receiver}"
+  invoice_logs_mailer:
+    send_weekly_invoice_logs:
+      subject: Reminder for your weekly contract invoice
+      content: "Kindly note that today is the due date for an invoice on %{contract_number} and it's value is %{invoice_amount}"
+      invoices_link: "You can visit your invoices list through this link"
+      hint: note that weekly invoice is calculated automatically with system, and it can be changed with the decision between two entities.
+  admin_user_mailer:
+    inspector_created:
+      subject: You have been added as an Inspector
+      change_your_password: You can set your password
+  service_provider_mailer:
+    accepted:
+      subject: "Your request to join MRN has been accepted"
+      body: "You can now enjoy the features available to you as a service provider"
+      login: "Sign In"
+    rejected:
+      subject: "Your request to join MRN has been rejected"
+      body: "The rejection reason is %{reason}"
+      reupload: "Edit your profile"
+  errors:
+    messages:
+      service_unavailable:
+        sso:
+          empty_response: "We didn't a recieve response from the SSO"
+          corrupted_response: "The response from the SSO is corrupted"
+          host_unreachable: "host unreachable"
+        gosi_employee_eligibilty: "gosi service is unavailable now"
+        nlg_service:
+          generic: "company activity is unavailable now"
+          labor_office_error: "company activity is unavailable now due to labor office id error"
