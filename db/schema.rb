@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_153620) do
+ActiveRecord::Schema.define(version: 2020_04_27_232145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,56 +25,6 @@ ActiveRecord::Schema.define(version: 2020_12_13_153620) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
-  end
-
-  create_table "clients", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.string "mobile", null: false
-    t.string "password_digest", null: false
-    t.string "primary_address", null: false
-    t.string "location"
-    t.string "longitude"
-    t.string "latitude"
-    t.string "area"
-    t.string "neighborhood"
-    t.string "street"
-    t.string "secondary_address"
-    t.string "building_number"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "avatar"
-  end
-
-  create_table "employees", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.string "mobile", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
-    t.string "national_id"
-    t.string "vehicle_type"
-    t.string "bank_name"
-    t.string "bank_account_number"
-    t.string "bank_account_holder_name"
-    t.boolean "confirmed", default: false
-    t.boolean "saudi", default: true
-    t.string "avatar"
-    t.index ["email"], name: "index_employees_on_email", unique: true
-    t.index ["mobile"], name: "index_employees_on_mobile", unique: true
-  end
-
-  create_table "stores", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.string "mobile", null: false
-    t.string "password_digest", null: false
-    t.string "primary_address", null: false
-    t.string "location"
-    t.string "longitude"
-    t.string "latitude"
-    t.string "avatar"
   end
 
 end

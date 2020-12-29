@@ -1,5 +1,5 @@
 module Api::V1
-  class AuthenticationController < ::Api::BaseController
+  class AuthenticationController < ApplicationController
 
     def retireve_acces_token
       response = HTTParty.post(
@@ -13,8 +13,8 @@ module Api::V1
           client_id: AppConfig.quire_client_id,
           client_secret: AppConfig.quire_client_secret
         }
-      )
-      render json: "ok", status: :ok
+      ).parsed_response
+      render json: response, status: :ok
 
     end
 
