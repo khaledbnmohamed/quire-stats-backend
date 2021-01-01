@@ -1,19 +1,25 @@
 module Api::V1
-  class ClientsController < ::Api::BaseController
-    skip_before_action :authenticate_request, only: %i[create]
-    before_action :set_client, only: %i[show edit update destroy]
-
-    # GET /clients
+  class ProjectsController < ApplicationController
     def index
-      @clients = Client.all
+      response = HTTParty.get(
+        "https://quire.io/api/task/list/#{params[:id]}",
+        headers: {
+          'Content-Type' => 'application/json',
+          'Authorization' => "bearer #{params[:user_token]}"
+        }
+      ).parsed_response
+      render json: response, status: :ok
     end
 
-    # GET /clients/1
     def show
-      authorize @client
-      raise ArgumentError, client.errors.messages unless @client
-
-      render json: ClientBlueprint.render(@client), status: :ok
+      response = HTTParty.get(
+        "https://quire.io/api/project/id/#{params[:id]}",
+        headers: {
+          'Content-Type' => 'application/json',
+          'Authorization' => "bearer #{params[:user_token]}"
+        }
+      ).parsed_response
+      render json: response, status: :ok
     end
 
     # GET /clients/1/edit

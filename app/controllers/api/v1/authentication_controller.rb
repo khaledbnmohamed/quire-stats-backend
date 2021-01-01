@@ -1,6 +1,5 @@
 module Api::V1
   class AuthenticationController < ApplicationController
-
     def retireve_acces_token
       response = HTTParty.post(
         "https://quire.io/oauth/token",
@@ -14,9 +13,8 @@ module Api::V1
           client_secret: AppConfig.quire_client_secret
         }
       ).parsed_response
+      Project.sync_user_projects(JSON.parse(response)["access_token"])
       render json: response, status: :ok
-
     end
-
   end
 end

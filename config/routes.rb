@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   namespace :api, constraints: { format: 'json' } do
     namespace :v1 do
       get 'retireve_acces_token', to: 'authentication#retireve_acces_token'
-
+      resources :tasks
     end
   end
 end
