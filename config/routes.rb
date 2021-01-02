@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'retireve_acces_token', to: 'authentication#retireve_acces_token'
       resources :tasks
+      resources :projects
     end
   end
 end

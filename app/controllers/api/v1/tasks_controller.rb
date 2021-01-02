@@ -2,13 +2,29 @@ module Api::V1
   class TasksController < ApplicationController
     def index
       set_project
-      project_oid = @project.quire_id.delete('"')
-      url = "https://quire.io/api/task/list/id/#{project_oid}"
+      project_id = @project.quire_id.delete('"')
+      url = "https://quire.io/api/task/list/id/#{project_id}"
       response = HTTParty.get(url,
                               headers: {
                                 'Content-Type' => 'application/json',
                                 'Authorization' => "bearer #{params[:user_token]}"
                               }).parsed_response
+
+      tasks_array = []
+      response.each do |task|
+        tasks_array.append({
+                             quire_oid: task["oid"],
+                             quire_id: task["id"],
+                             name: task["nameText"],
+                             state: task["status"]["name"],
+                             toggled_at: task["toggledAt"],
+                             due: task["due"],
+                             recurring: task["recurring"].present?
+                           })
+      end
+      tasks_array.each do |item|
+        Task.find_or_create_by(item)
+      end
       render json: response, status: :ok
     end
 

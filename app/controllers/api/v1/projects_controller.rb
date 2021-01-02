@@ -1,14 +1,10 @@
 module Api::V1
   class ProjectsController < ApplicationController
     def index
-      response = HTTParty.get(
-        "https://quire.io/api/task/list/#{params[:id]}",
-        headers: {
-          'Content-Type' => 'application/json',
-          'Authorization' => "bearer #{params[:user_token]}"
-        }
-      ).parsed_response
-      render json: response, status: :ok
+      projects = Project.all.page(params[:page])
+
+      render json: { projects: projects,
+                     meta: PaginationBlueprint.render(projects) }, status: :ok
     end
 
     def show
