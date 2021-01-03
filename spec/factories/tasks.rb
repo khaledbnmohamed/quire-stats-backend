@@ -4,12 +4,12 @@
 #
 #  id           :bigint           not null, primary key
 #  assgine_name :string
-#  due          :date
+#  due          :datetime
 #  name         :string
 #  quire_oid    :string
 #  recurring    :boolean
 #  state        :string
-#  toggled_at   :date
+#  toggled_at   :datetime
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  assigne_id   :string

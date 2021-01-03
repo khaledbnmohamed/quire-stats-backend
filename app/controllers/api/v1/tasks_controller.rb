@@ -2,53 +2,19 @@ module Api::V1
   class TasksController < ApplicationController
     def index
       set_project
-      project_id = @project.quire_id.delete('"')
-      url = "https://quire.io/api/task/list/id/#{project_id}"
-      response = HTTParty.get(url,
-                              headers: {
-                                'Content-Type' => 'application/json',
-                                'Authorization' => "bearer #{params[:user_token]}"
-                              }).parsed_response
-
-      tasks_array = []
-      response.each do |task|
-        tasks_array.append({
-                             quire_oid: task["oid"],
-                             quire_id: task["id"],
-                             name: task["nameText"],
-                             state: task["status"]["name"],
-                             toggled_at: task["toggledAt"],
-                             due: task["due"],
-                             recurring: task["recurring"].present?
-                           })
-      end
-      tasks_array.each do |item|
-        Task.find_or_create_by(item)
-      end
+      response = TaskCreationFromQuireService.call(@project, params[:user_token])
       render json: response, status: :ok
     end
 
-    # GET /clients/1
-    def show
-      authorize @client
-      raise ArgumentError, client.errors.messages unless @client
+    def daily_overview
+      set_project
+      TaskCreationFromQuireService.call(@project, params[:user_token])
 
-      render json: ClientBlueprint.render(@client), status: :ok
-    end
-
-    # GET /clients/1/edit
-    def edit
-    end
-
-    # POST /clients
-    def create
-      skip_authorization
-
-      client = Client.new(client_params)
-
-      raise Errors::CustomError.new(:bad_request, 400, client.errors.messages) unless client.save
-
-      render json: ClientBlueprint.render(client), status: :ok
+      today_tasks = Task.due_on_selected_date(Time.zone.today, Time.zone.today)
+      today_completed_tasks = Task.due_completed_at_selected_date(Time.zone.today, Time.zone.today)
+      render json: {
+        today_tasks: today_tasks, today_completed_tasks: today_completed_tasks, today_tasks_count: today_tasks.count, today_completed_tasks_count: today_completed_tasks.count
+      }
     end
 
     # PATCH/PUT /clients/1
